@@ -6,9 +6,10 @@ export const AutoReply = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    console.log('Form data:', Object.fromEntries(new FormData(form.current)));
 
     emailjs
-      .sendForm('service_nvii7l5', 'template_yioh9be', form.current, {
+      .sendForm('service_nvii7l5', 'template_3m4cec3', form.current, {
         publicKey: 'mMI_toKiVHyku96VO',
       })
       .then(
@@ -31,7 +32,7 @@ export const AutoReply = () => {
         <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
         <input 
           type="text" 
-          name="user_name" 
+          name="name" 
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
@@ -41,7 +42,7 @@ export const AutoReply = () => {
         <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
         <input 
           type="email" 
-          name="user_email" 
+          name="email" 
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
@@ -56,6 +57,14 @@ export const AutoReply = () => {
           required
         />
       </div>
+      
+      {/* Use defaultValue instead of value for hidden field */}
+      <input 
+        type="email" 
+        name="to_email" 
+        defaultValue="tslit.amit@gmail.com" 
+        hidden 
+      />
       
       <button 
         type="submit" 
