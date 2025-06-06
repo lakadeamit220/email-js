@@ -9,7 +9,7 @@ export const AutoReply = () => {
     console.log('Form data:', Object.fromEntries(new FormData(form.current)));
 
     emailjs
-      .sendForm('service_nvii7l5', 'template_3m4cec3', form.current, {
+      .sendForm('service_nvii7l5', 'template_853n7b9', form.current, {
         publicKey: 'mMI_toKiVHyku96VO',
       })
       .then(
